@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="1000.0" style="-fx-padding: 20; -fx-spacing: 30;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.adminController">
+   <children>
+      <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;" text="USER MANAGEMENT" />
+      <HBox prefHeight="43.0" prefWidth="1000.0" spacing="10">
+         <children>
+            <TextField fx:id="searchField" maxWidth="718.0" prefHeight="43.0" prefWidth="718.0" promptText="Search user..." style="-fx-pref-width: 800;" />
+            <Pane prefHeight="43.0" prefWidth="94.0" />
+            <Button fx:id="searchbtn" onAction="#handleSearch" prefHeight="38.0" prefWidth="113.0" style="-fx-background-color: #3498db; -fx-text-fill: white;" text="Search">
+               <effect>
+                  <DropShadow radius="10" />
+               </effect>
+            </Button>
+         </children>
+      </HBox>
+      <TableView fx:id="userTable" prefHeight="435.0" prefWidth="960.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="143.0" text="User ID" />
+            <TableColumn fx:id="colName" prefWidth="151.0" text="Name" />
+            <TableColumn fx:id="colRole" prefWidth="162.0" text="Role" />
+            <TableColumn fx:id="colStatus" prefWidth="170.0" text="Status" />
+            <TableColumn fx:id="colEmail" prefWidth="211.0" text="Email" />
+         </columns>
+      </TableView>
+      <HBox prefHeight="46.0" prefWidth="960.0" spacing="10" style="-fx-spacing: 210;">
+         <children>
+            <Button fx:id="addbtn" onAction="#openAddUserForm" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" text="Add User" />
+            <Button fx:id="delbtn" onAction="#handleDeleteUser" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Delete User" />
+            <Button fx:id="editbtn" layoutX="193.0" layoutY="10.0" onAction="#handleEditUser" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Edit User" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

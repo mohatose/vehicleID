@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.servicerecordController">
+   <children>
+      <HBox prefHeight="429.0" prefWidth="1000.0" style="-fx-spacing: 20;">
+         <children>
+            <VBox prefHeight="430.0" prefWidth="438.0" style="-fx-spacing: 20; -fx-padding: 20;">
+               <children>
+                  <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Service Record" />
+                  <GridPane hgap="10" vgap="10">
+                     <children>
+                        <Label text="service_id:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="serviceidField" prefHeight="26.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label text="vehicle_id:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="vidField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="service_date:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField fx:id="sdateField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="service_type:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="stype" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="description:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <TextArea fx:id="destypeField" prefHeight="74.0" prefRowCount="3" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="cost:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <TextField fx:id="costField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Button fx:id="savesBtn" onAction="#handleseveservice" style="-fx-background-color:#27ae60; -fx-text-fill:white;" text="Save Service" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints fx:id="gridpaneField" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="581.0" style="-fx-padding: 20; -fx-spacing: 20;">
+               <children>
+                  <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="Service Table" />
+                  <TableView fx:id="serveTable" prefHeight="343.0" prefWidth="539.0">
+                     <columns>
+                        <TableColumn fx:id="serveidCol" text="service_id" />
+                        <TableColumn fx:id="vehiidCol" text="vehicle_id" />
+                        <TableColumn fx:id="servedateCol" prefWidth="89.5999755859375" text="service_date" />
+                        <TableColumn fx:id="servetypeCol" prefWidth="93.5999755859375" text="service_type" />
+                        <TableColumn fx:id="descripCol" prefWidth="114.4000244140625" text="description" />
+                        <TableColumn fx:id="costsCol" prefWidth="79.99996948242188" text="cost" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="146.0" prefWidth="939.0" style="-fx-spacing: 30;">
+         <children>
+            <VBox prefHeight="140.0" prefWidth="453.0">
+               <children>
+                  <TitledPane animated="false" text="Activities">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane fx:id="serveScroll" prefHeight="120">
+                                 <content>
+                                    <VBox fx:id="vact" prefHeight="200.0" prefWidth="440.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TitledPane>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="140.0" prefWidth="453.0">
+               <children>
+                  <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Services Overview" />
+                  <HBox spacing="15">
+                     <children>
+                        <VBox fx:id="tCard" prefHeight="80.0" prefWidth="145.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label text="Total Services" />
+                              <Label fx:id="totas" style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="pCard" prefHeight="80.0" prefWidth="135.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label text="Paid Services" />
+                              <Label fx:id="pse" style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="upCard" prefHeight="80.0" prefWidth="142.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="UnPaid Services" />
+                              <Label fx:id="ups" style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="15">
+                     <children>
+                        <ProgressBar fx:id="serveBar" prefHeight="18.0" prefWidth="375.0" progress="0.7" />
+                        <ProgressIndicator fx:id="serveIndi" progress="0.6" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

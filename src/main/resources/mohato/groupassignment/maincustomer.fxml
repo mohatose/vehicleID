@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.maincustomerController">
+   <top>
+      <HBox prefHeight="39.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="70.0" prefWidth="342.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="🚗 Customer Management System" />
+            <Pane prefHeight="60.0" prefWidth="336.0" />
+            <MenuBar fx:id="menubar" prefHeight="36.0" prefWidth="358.0">
+               <menus>
+                  <Menu fx:id="file" mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem fx:id="close" mnemonicParsing="false" onAction="#handleclose" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="help" mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem fx:id="about" mnemonicParsing="false" onAction="#handleabout" text="About" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="account" mnemonicParsing="false" text="Logout">
+                     <items>
+                        <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#handlelogout" text="logout" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="731.0" prefWidth="1000.0" style="-fx-padding: 30;" BorderPane.alignment="CENTER">
+         <children>
+            <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="System Navigation" />
+            <Pagination fx:id="pagination" maxPageIndicatorCount="3" pageCount="3" prefHeight="706.0" prefWidth="940.0" style="-fx-border-color:#dcdde1; -fx-border-radius:5;" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

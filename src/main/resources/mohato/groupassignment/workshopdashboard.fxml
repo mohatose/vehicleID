@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-padding: 20; -fx-spacing: 20; -fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.workshopdashboardController">
+   <children>
+      <Label style="-fx-font-size:22px; -fx-font-weight:bold;" text="Workshop Dashboard" />
+      <HBox spacing="20">
+         <children>
+            <VBox prefHeight="82.0" prefWidth="175.0" spacing="5" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+               <children>
+                  <Label text="Total Vehicles" />
+                  <Label fx:id="tv" style="-fx-font-size:20px; -fx-font-weight:bold;" text="120" />
+               </children>
+            </VBox>
+            <VBox prefHeight="82.0" prefWidth="175.0" spacing="5" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+               <children>
+                  <Label text="Services Today" />
+                  <Label fx:id="st" style="-fx-font-size:20px; -fx-font-weight:bold;" text="25" />
+               </children>
+            </VBox>
+            <VBox prefHeight="82.0" prefWidth="175.0" spacing="5" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+               <children>
+                  <Label text="Completed Services" />
+                  <Label fx:id="cs" style="-fx-font-size:20px; -fx-font-weight:bold;" text="80" />
+               </children>
+            </VBox>
+            <VBox prefHeight="82.0" prefWidth="175.0" spacing="5" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+               <children>
+                  <Label text="Pending Services" />
+                  <Label fx:id="psss" style="-fx-font-size:20px; -fx-font-weight:bold;" text="15" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox prefHeight="188.0" prefWidth="760.0" spacing="10" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+         <children>
+            <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="System Performance" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="100.0" prefWidth="538.0" style="-fx-padding: 40;">
+                     <children>
+                        <ProgressBar fx:id="prom" prefHeight="19.0" prefWidth="458.0" progress="0.75" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="190.0" style="-fx-padding: 20; -fx-alignment: center;">
+                     <children>
+                        <ProgressIndicator fx:id="indic" progress="0.65" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox spacing="10" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+         <children>
+            <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="services Done today" />
+            <ScrollPane fitToWidth="true" prefHeight="180">
+               <content>
+                  <VBox fx:id="base" prefHeight="149.0" prefWidth="728.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</VBox>

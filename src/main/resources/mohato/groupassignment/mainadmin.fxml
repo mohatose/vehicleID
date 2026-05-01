@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.mainadminController">
+   <top>
+      <HBox prefHeight="39.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar fx:id="menubar" prefHeight="46.0" prefWidth="1000.0" style="-fx-background-color: #d9ecf8;">
+               <menus>
+                  <Menu text="Dashboard">
+                     <items>
+                        <MenuItem fx:id="dashboard" mnemonicParsing="false" onAction="#handledashboard" text="Open Dashboard" />
+                     </items></Menu>
+                  <Menu text="Users">
+                     <items>
+                        <MenuItem fx:id="user" mnemonicParsing="false" onAction="#handleuser" text="User management" />
+                     </items></Menu>
+                  <Menu text="Vehicles">
+                     <items>
+                        <MenuItem fx:id="vehicle" mnemonicParsing="false" onAction="#handlevehicle" text="Vehicle Page" />
+                     </items></Menu>
+                  <Menu text="Reports">
+                     <items>
+                        <MenuItem fx:id="reports" mnemonicParsing="false" onAction="#handlereports" text="Reports Page" />
+                     </items></Menu>
+                  <Menu text="Settings">
+                     <items>
+                        <MenuItem fx:id="settings" mnemonicParsing="false" onAction="#handlesettings" text="Settings Page" />
+                     </items></Menu>
+               </menus>
+            </MenuBar>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="700.0" prefWidth="1000.0" style="-fx-padding: 30;" BorderPane.alignment="CENTER">
+         <children>
+            <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="System Navigation" />
+            <Pagination fx:id="pagination" maxPageIndicatorCount="3" pageCount="3" style="-fx-border-color:#dcdde1; -fx-border-radius:5;" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

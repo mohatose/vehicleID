@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-padding: 20; -fx-spacing: 20; -fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.insurancedashboardController">
+   <children>
+      <Label style="-fx-font-size:22px; -fx-font-weight:bold;" text="Insurance Dashboard" />
+      <HBox spacing="15" style="-fx-alignment: center;">
+         <children>
+            <VBox fx:id="ccard1" prefHeight="83.0" prefWidth="170.0" spacing="5" style="-fx-background-color: yellow; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5,0,0,2);">
+               <children>
+                  <Label fx:id="veht" text="Total Vehicles" />
+                  <Label fx:id="n1" style="-fx-font-size:20px; -fx-font-weight:bold;" text="120" />
+               </children>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.1882352977991104" green="0.20000000298023224" blue="0.5411764979362488" />
+                     </color></DropShadow>
+               </effect>
+            </VBox>
+            <VBox fx:id="ccard2" prefHeight="83.0" prefWidth="171.0" spacing="5" style="-fx-background-color: #e44e4e; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5,0,0,2);">
+               <children>
+                  <Label fx:id="ap" text="Active Policies" />
+                  <Label fx:id="n2" style="-fx-font-size:20px; -fx-font-weight:bold;" text="95" />
+               </children>
+            </VBox>
+            <VBox fx:id="ccard3" prefHeight="83.0" prefWidth="170.0" spacing="5" style="-fx-background-color: #4b9e34; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5,0,0,2);">
+               <children>
+                  <Label fx:id="ep" text="Expired Policies" />
+                  <Label fx:id="n3" style="-fx-font-size:20px; -fx-font-weight:bold;" text="25" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </VBox>
+            <VBox prefHeight="83.0" prefWidth="170.0" spacing="5" style="-fx-background-color: orange; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5,0,0,2);">
+               <children>
+                  <Label fx:id="claip" text="Claims Processed" />
+                  <Label fx:id="n4" style="-fx-font-size:20px; -fx-font-weight:bold;" text="40" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox spacing="10" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+         <children>
+            <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="System Performance" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="100.0" prefWidth="538.0" style="-fx-padding: 40;">
+                     <children>
+                        <ProgressBar fx:id="pro1" prefHeight="18.0" prefWidth="539.0" progress="0.75" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="190.0" style="-fx-padding: 20; -fx-alignment: center;">
+                     <children>
+                        <ProgressIndicator fx:id="pro2" progress="0.65" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox spacing="10" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+         <children>
+            <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Recent Activity" />
+            <ScrollPane fx:id="scrollinsu" fitToWidth="true" prefHeight="150">
+               <content>
+                  <VBox fx:id="space" prefHeight="200.0" prefWidth="100.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</VBox>

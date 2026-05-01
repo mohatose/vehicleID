@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.customerController">
+   <children>
+      <HBox prefHeight="594.0" prefWidth="1400.0">
+         <children>
+            <VBox prefHeight="558.0" prefWidth="553.0" spacing="10">
+               <padding>
+                  <Insets bottom="15" left="15" right="15" top="15" />
+               </padding>
+               <children>
+                  <Label text="Add Customer">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Name">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="namef" prefHeight="36.0" prefWidth="320.0" style="-fx-background-radius: 5;" />
+                  <Label text="Address">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="addressf" prefHeight="35.0" prefWidth="270.0" style="-fx-background-radius: 5;" />
+                  <Label text="Phone">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="phonef" prefHeight="37.0" prefWidth="270.0" style="-fx-background-radius: 5;" />
+                  <Label text="Email">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="emailf" prefHeight="35.0" prefWidth="320.0" style="-fx-background-radius: 4;" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 20; -fx-padding: 20;">
+                     <children>
+                        <Button fx:id="save" onAction="#hadlesave" prefHeight="50.0" prefWidth="150.0" style="-fx-background-radius: 7;" text="Save">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
+                        <Button fx:id="update" onAction="#handleupdate" prefHeight="53.0" prefWidth="150.0" style="-fx-background-radius: 7;" text="Update">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
+                        <Button fx:id="clear" layoutX="51.0" layoutY="10.0" onAction="#handleclear" prefHeight="53.0" prefWidth="150.0" style="-fx-background-radius: 7;" text="Clear">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect></Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="594.0" prefWidth="852.0" style="-fx-padding: 20; -fx-spacing: 20;">
+               <children>
+                  <Label text="Customer Table">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="table" prefHeight="372.0" prefWidth="585.0" style="-fx-background-radius: 5;">
+                     <columns>
+                        <TableColumn fx:id="idcol" prefWidth="74.0" text="ID" />
+                        <TableColumn fx:id="ncol" minWidth="0.0" prefWidth="136.0" text="Name" />
+                        <TableColumn fx:id="acol" prefWidth="133.0" text="Address" />
+                        <TableColumn fx:id="pcol" prefWidth="127.0" text="Phone" />
+                        <TableColumn fx:id="ecol" prefWidth="137.0" text="Email" />
+                     </columns>
+                     <effect>
+                        <ColorAdjust brightness="0.12" contrast="0.07" hue="0.11" saturation="-0.36" />
+                     </effect>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="254.0" prefWidth="1000.0">
+         <children>
+            <VBox prefHeight="180.0" prefWidth="482.0" style="-fx-padding: 20;">
+               <children>
+                  <HBox prefHeight="118.0" prefWidth="434.0" style="-fx-padding: 40; -fx-spacing: 2;">
+                     <children>
+                        <ProgressBar fx:id="pi" prefHeight="23.0" prefWidth="285.0" progress="0.0">
+                           <effect>
+                              <Glow level="1.0" />
+                           </effect></ProgressBar>
+                        <ProgressIndicator fx:id="pil" prefWidth="43.0" progress="0.0">
+                           <effect>
+                              <Reflection />
+                           </effect></ProgressIndicator>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="195.0" prefWidth="650.0" style="-fx-padding: 30;">
+               <children>
+                  <HBox prefHeight="140.0" prefWidth="453.0" style="-fx-padding: 10; -fx-spacing: 10;">
+                     <children>
+                        <VBox prefHeight="88.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.43421053886413574" green="0.15679824352264404" blue="0.15679824352264404" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <children>
+                              <Label text="Total customer">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalCustomer" layoutX="10.0" layoutY="10.0" text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="88.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+                           <children>
+                              <Label fx:id="activ" prefHeight="27.0" prefWidth="128.0" text="Active cust">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <DropShadow />
+                           </effect></VBox>
+                        <VBox layoutX="170.0" layoutY="10.0" prefHeight="88.0" prefWidth="169.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+                           <children>
+                              <Label fx:id="inactiv" text="Inactive cust">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <DropShadow />
+                           </effect></VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

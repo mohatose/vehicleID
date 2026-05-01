@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-padding: 20; -fx-spacing: 20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.violationController">
+   <children>
+      <HBox prefHeight="406.0" prefWidth="960.0">
+         <children>
+            <VBox prefHeight="389.0" prefWidth="443.0" style="-fx-spacing: 20; -fx-padding: 15;">
+               <children>
+                  <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Violation" />
+                  <GridPane fx:id="GridField" hgap="10" vgap="10">
+                     <children>
+                        <Label text="violation_id:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="violationidField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label text="vehicle_id:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label text="violation_date:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label text="violation_type:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="violationtypeField" prefHeight="26.0" prefWidth="272.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="fine_amount:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <TextField fx:id="fineamountField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="status:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Button fx:id="saveviolationBtn" onAction="#handleSaveviolation" style="-fx-background-color:#e67e22; -fx-text-fill:white;" text="Save Violation" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <ComboBox fx:id="vehicleidField" prefHeight="25.0" prefWidth="270.0" promptText="Select Vehicle" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="statusField" prefHeight="25.0" prefWidth="271.0" promptText="Select Status" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <DatePicker fx:id="violationdateField" prefHeight="25.0" prefWidth="269.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="394.0" prefWidth="517.0">
+               <children>
+                  <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Violation Table" />
+                  <TableView fx:id="violationTable" prefHeight="350.0" prefWidth="517.0">
+                     <columns>
+                        <TableColumn fx:id="violationidCol" text="violation_id" />
+                        <TableColumn fx:id="vehicleidCol" text="vehicle_id" />
+                        <TableColumn fx:id="violationdateCol" prefWidth="89.5999755859375" text="violation_date" />
+                        <TableColumn fx:id="violationtypeCol" prefWidth="98.39994812011719" text="violation_type" />
+                        <TableColumn fx:id="fineCol" prefWidth="88.800048828125" text="fine_amount" />
+                        <TableColumn fx:id="statusCol" prefWidth="75.199951171875" text="status" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="146.0" prefWidth="939.0" style="-fx-spacing: 30;">
+         <children>
+            <VBox prefHeight="140.0" prefWidth="453.0">
+               <children>
+                  <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Violation Overview" />
+                  <HBox spacing="15">
+                     <children>
+                        <VBox fx:id="totalVcard" prefHeight="80.0" prefWidth="150.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label text="Total Violation" />
+                              <Label fx:id="tv" style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="paidCard" prefHeight="80.0" prefWidth="140.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label text=" Paid Fine" />
+                              <Label fx:id="pf" style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="unpaidCard" prefHeight="80.0" prefWidth="138.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label text="Unpaid Fine" />
+                              <Label fx:id="uf" style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="15">
+                     <children>
+                        <ProgressBar fx:id="violationBar" prefHeight="18.0" prefWidth="375.0" progress="0.7" />
+                        <ProgressIndicator fx:id="violationIndi" progress="0.6" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <TitledPane animated="false" prefHeight="140.0" prefWidth="476.0" text="untitled">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="122.0" prefWidth="476.0">
+                           <children>
+                              <ScrollPane fx:id="violationScroll" prefHeight="120">
+                                 <content>
+                                    <VBox fx:id="listV" prefHeight="200.0" prefWidth="435.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

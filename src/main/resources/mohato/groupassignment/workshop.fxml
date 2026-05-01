@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.workshopController">
+   <children>
+      <HBox prefHeight="429.0" prefWidth="1000.0" style="-fx-spacing: 20;">
+         <children>
+            <VBox prefHeight="430.0" prefWidth="398.0" style="-fx-spacing: 20; -fx-padding: 20;">
+               <children>
+                  <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="Workshop Management" />
+                  <TextField fx:id="vehicleIdField" promptText="Vehicle ID" />
+                  <TextField fx:id="regNumberField" promptText="Registration Number" />
+                  <TextField fx:id="makeField" promptText="Make" />
+                  <TextField fx:id="modelField" promptText="Model" />
+                  <TextField fx:id="yearField" promptText="Year" />
+                  <TextField fx:id="ownerIdField" promptText="Owner ID" />
+                  <HBox prefHeight="46.0" prefWidth="358.0" style="-fx-alignment: center;">
+                     <children>
+                        <Button fx:id="addvehicleBtn" onAction="#handleaddVehicle" text="Add Vehicle" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="415.0" prefWidth="582.0" style="-fx-padding: 20; -fx-spacing: 20;">
+               <children>
+                  <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Vehicle Details" />
+                  <TableView fx:id="workshopTable" prefHeight="372.0" prefWidth="542.0">
+                     <columns>
+                        <TableColumn fx:id="vehicleWoCol" prefWidth="75.0" text="Vehicle ID" />
+                        <TableColumn fx:id="regWoCol" prefWidth="86.39997100830078" text="Reg. No." />
+                        <TableColumn fx:id="makeWoCol" prefWidth="99.2000732421875" text="Make" />
+                        <TableColumn fx:id="modelWoCol" prefWidth="104.79998779296875" text="Model" />
+                        <TableColumn fx:id="yearWocol" prefWidth="83.199951171875" text="Year" />
+                        <TableColumn fx:id="ownerIdWoCol" prefWidth="94.39999389648438" text="Owner ID" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="146.0" prefWidth="939.0" style="-fx-spacing: 30;">
+         <children>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="140.0" prefWidth="453.0">
+               <children>
+                  <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Total Vehicle" />
+                  <HBox spacing="15">
+                     <children>
+                        <VBox fx:id="totalVeCard" prefHeight="80.0" prefWidth="145.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label text="Total Vehicle" />
+                              <Label fx:id="totalV" style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="80.0" prefWidth="135.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label fx:id="RegVeCard" text="Registered Vehicle" />
+                              <Label fx:id="regV" style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="unregVeCard" prefHeight="80.0" prefWidth="142.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="122.0" text="Unregistered Vehicle" />
+                              <Label fx:id="unreV" style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="15">
+                     <children>
+                        <ProgressBar fx:id="VehicleWoBar" prefHeight="18.0" prefWidth="375.0" progress="0.7" />
+                        <ProgressIndicator fx:id="VehicleWoIndi" progress="0.6" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <TitledPane animated="false" prefHeight="146.0" prefWidth="515.0" text="Activity">
+               <content>
+                  <ScrollPane fx:id="vehicleScroll" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <VBox fx:id="actvityV" prefHeight="200.0" prefWidth="486.0" />
+                     </content>
+                  </ScrollPane>
+               </content>
+            </TitledPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

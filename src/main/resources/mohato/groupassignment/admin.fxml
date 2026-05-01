@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" fx:controller="mohato.groupassignment.adminController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar prefHeight="41.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <ScrollPane prefHeight="687.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <content>
+            <AnchorPane prefHeight="654.0" prefWidth="1000.0">
+               <children>
+                  <VBox prefHeight="654.0" prefWidth="1000.0" style="-fx-padding: 30; -fx-spacing: 30;">
+                     <children>
+                        <HBox prefHeight="430.0" prefWidth="1000.0" style="-fx-padding: 30; -fx-spacing: 20; -fx-background-color: blue;">
+                           <children>
+                              <VBox prefHeight="370.0" prefWidth="378.0" style="-fx-padding: 20; -fx-spacing: 20;">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="230.0" style="-fx-font-size:16px; -fx-font-weight:bold;" text="User Access Management" />
+                                    <GridPane hgap="15" prefHeight="298.0" prefWidth="338.0" vgap="15">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="78.0" text="User ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                          <TextField fx:id="userIdField" prefHeight="40.0" prefWidth="268.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                          <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                          <TextField fx:id="nameField" prefHeight="40.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                          <TextField fx:id="roleField" prefHeight="40.0" prefWidth="256.0" promptText="Customer / Police / Workshop / Insurance" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                          <TextField fx:id="statusField" prefHeight="40.0" prefWidth="256.0" promptText="GRANTED / DENIED" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <HBox prefHeight="56.0" prefWidth="256.0" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <children>
+                                                <Button fx:id="grantBtn" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color:#27ae60; -fx-text-fill:white;" text="Grant Access" />
+                                                <Button fx:id="denyBtn" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color:#c0392b; -fx-text-fill:white;" text="Deny Access" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints />
+                                          <ColumnConstraints />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="370.0" prefWidth="518.0" style="-fx-padding: 20;">
+                                 <children>
+                                    <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="System Users" />
+                                    <TableView fx:id="userTable" prefHeight="304.0" prefWidth="498.0">
+                                       <columns>
+                                          <TableColumn text="User ID" />
+                                          <TableColumn text="Name" />
+                                          <TableColumn text="Role" />
+                                          <TableColumn text="Status" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="146.0" prefWidth="939.0" style="-fx-spacing: 30;">
+                           <children>
+                              <VBox prefHeight="140.0" prefWidth="453.0">
+                                 <children>
+                                    <ScrollPane prefHeight="120">
+                                       <content>
+                                          <VBox spacing="5">
+                                             <children>
+                                                <Label text="✔ User added" />
+                                                <Label text="✔ Access granted" />
+                                                <Label text="✔ Access denied" />
+                                                <Label text="✔ Role assigned" />
+                                                <Label text="✔ System updated" />
+                                                <Label text="✔ Login tracked" />
+                                                <Label text="✔ Permission changed" />
+                                                <Label text="✔ Audit completed" />
+                                                <Label text="✔ Record saved" />
+                                                <Label text="✔ Security check done" />
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0" prefHeight="140.0" prefWidth="453.0">
+                                 <children>
+                                    <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="System Overview" />
+                                    <HBox spacing="15">
+                                       <children>
+                                          <VBox spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                                             <children>
+                                                <Label text="Total Users" />
+                                                <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                                             <children>
+                                                <Label text="Active Users" />
+                                                <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                                             <children>
+                                                <Label text="Denied Access" />
+                                                <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="15">
+                                       <children>
+                                          <ProgressBar prefHeight="18.0" prefWidth="375.0" progress="0.7" />
+                                          <ProgressIndicator progress="0.6" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label layoutX="59.0" prefHeight="32.0" prefWidth="587.0" style="-fx-font-size:22px; -fx-font-weight:bold;" text="Vehicle Identification System - Admin Dashboard" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

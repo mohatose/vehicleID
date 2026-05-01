@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.insuranceController">
+   <children>
+      <HBox prefHeight="429.0" prefWidth="1000.0" style="-fx-spacing: 20;">
+         <children>
+            <VBox prefHeight="430.0" prefWidth="398.0" style="-fx-spacing: 20; -fx-padding: 20;">
+               <children>
+                  <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="Insurance Tracking" />
+                  <TextField fx:id="insuranceIdField" promptText="Insurance ID" />
+                  <ComboBox fx:id="vehicleCombo" prefHeight="25.0" prefWidth="357.0" promptText="Select Vehicle" />
+                  <TextField fx:id="providerField" promptText="provider_name" />
+                  <TextField fx:id="policyField" promptText="policy_number" />
+                  <TextField fx:id="startDateField" promptText="start_date" />
+                  <TextField fx:id="endDateField" promptText="end_date" />
+                  <HBox prefHeight="46.0" prefWidth="358.0" style="-fx-alignment: center;">
+                     <children>
+                        <Button onAction="#handlesaveInsurance" text="Save Insurance" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="581.0" style="-fx-padding: 20; -fx-spacing: 20;">
+               <children>
+                  <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="Insurance Table" />
+                  <TableView fx:id="insuranceTable" prefHeight="372.0" prefWidth="542.0">
+                    <columns>
+                      <TableColumn fx:id="iCol" prefWidth="75.0" text="Insurance ID" />
+                      <TableColumn fx:id="vcol" prefWidth="75.0" text="Vehicle ID" />
+                        <TableColumn fx:id="pcol" prefWidth="109.60003662109375" text="provider_name" />
+                        <TableColumn fx:id="pncol" prefWidth="104.79998779296875" text="policy_number" />
+                        <TableColumn fx:id="scol" prefWidth="99.199951171875" text="start_date" />
+                        <TableColumn fx:id="ecol" prefWidth="77.60006713867188" text="end_date" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="146.0" prefWidth="939.0" style="-fx-spacing: 30;">
+         <children>
+            <VBox prefHeight="140.0" prefWidth="453.0">
+               <children>
+                  <TitledPane animated="false" text="Recent Activities">
+                     <content>
+                        <ScrollPane fx:id="iScrol" prefHeight="120" style="-fx-padding: 10;">
+                           <content>
+                              <VBox fx:id="lCArd" prefHeight="213.0" prefWidth="424.0" />
+                           </content>
+                        </ScrollPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="140.0" prefWidth="453.0">
+               <children>
+                  <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Insurance Overview" />
+                  <HBox spacing="15">
+                     <children>
+                        <VBox fx:id="tCard" prefHeight="80.0" prefWidth="137.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label text="Total " />
+                              <Label fx:id="totalLabel" style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="iCard" prefHeight="80.0" prefWidth="136.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label text="Insured Vehicles" />
+                              <Label fx:id="insuredLabel" style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="uCared" prefHeight="80.0" prefWidth="141.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                           <children>
+                              <Label text="Uninsured Cars" />
+                              <Label fx:id="uninsuredLabel" style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="15" style="-fx-padding: 5;">
+                     <children>
+                        <ProgressBar fx:id="ibar" prefHeight="18.0" prefWidth="375.0" progress="0.7" />
+                        <ProgressIndicator fx:id="iIndi" progress="0.6" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

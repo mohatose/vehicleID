@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="1000.0" style="-fx-padding: 20; -fx-spacing: 20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;" text="VEHICLE MANAGEMENT" />
+      <HBox prefHeight="61.0" prefWidth="960.0" spacing="10" style="-fx-spacing: 100;">
+         <children>
+            <TextField prefHeight="61.0" promptText="Search by registration number" style="-fx-pref-width: 700;">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <Button prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #2980b9; -fx-text-fill: white;" text="Search">
+               <effect>
+                  <DropShadow radius="10" />
+               </effect>
+            </Button>
+         </children>
+      </HBox>
+      <TableView prefHeight="390.0" prefWidth="960.0">
+         <columns>
+            <TableColumn prefWidth="125.0" text="Vehicle ID" />
+            <TableColumn prefWidth="159.0" text="Registration" />
+            <TableColumn prefWidth="168.0" text="Make" />
+            <TableColumn prefWidth="179.0" text="Model" />
+            <TableColumn prefWidth="168.0" text="Year" />
+            <TableColumn prefWidth="159.0" text="Owner" />
+         </columns>
+      </TableView>
+      <HBox prefHeight="65.0" prefWidth="960.0" spacing="10" style="-fx-spacing: 200;">
+         <children>
+            <Button prefHeight="66.0" prefWidth="190.0" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="Add Vehicle" />
+            <Button prefHeight="67.0" prefWidth="190.0" style="-fx-background-color: #f39c12; -fx-text-fill: white;" text="Update" />
+            <Button prefHeight="68.0" prefWidth="190.0" style="-fx-background-color: #c0392b; -fx-text-fill: white;" text="Delete" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
