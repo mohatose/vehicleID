@@ -1,13 +1,27 @@
+# Maven build output
 target/
 build/
 
+# IntelliJ IDEA
 .idea/
 *.iml
 
+# Eclipse
 .classpath
 .project
-.settings
+.settings/
 
+# VS Code
 .vscode/
 
+# OS files
 .DS_Store
+
+# Logs
+*.log
+
+# Maven wrapper (keep wrapper, ignore junk)
+.mvn/wrapper/maven-wrapper.jar
+
+# Backup files
+*.bak
