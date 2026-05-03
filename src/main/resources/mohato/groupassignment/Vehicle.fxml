@@ -8,8 +8,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" style="-fx-alignment: left;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.VehicleController">
    <children>
@@ -26,8 +28,11 @@
                   <TextField fx:id="ownerIdField" promptText="Owner ID" />
                   <HBox prefHeight="46.0" prefWidth="358.0" style="-fx-alignment: center;">
                      <children>
-                        <Button onAction="#handleAddVehicle" text="Add Vehicle" />
+                        <Button onAction="#handleAddVehicle" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #b6bbbc;" text="Add Vehicle" />
                      </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </HBox>
                </children>
             </VBox>
@@ -78,23 +83,44 @@
                   <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Total Vehicle" />
                   <HBox fx:id="vclBar" spacing="15">
                      <children>
-                        <VBox fx:id="tCard" prefHeight="80.0" prefWidth="145.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="tCard" prefHeight="80.0" prefWidth="145.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Total Vehicle" />
                               <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="RegiCard" prefHeight="80.0" prefWidth="135.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="RegiCard" prefHeight="80.0" prefWidth="135.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Registered Vehicle" />
                               <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="unregiCard" prefHeight="80.0" prefWidth="142.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="unregiCard" prefHeight="80.0" prefWidth="142.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label prefHeight="18.0" prefWidth="122.0" text="Unregistered Vehicle" />
                               <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
                      </children>
                   </HBox>

@@ -5,109 +5,76 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="1000.0" style="-fx-padding: 20; -fx-spacing: 20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="ADMIN DASHBOARD" />
-      <HBox prefHeight="114.0" prefWidth="960.0" spacing="20">
-         <children>
-            <VBox prefWidth="213.3" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
-               <children>
-                  <Label style="-fx-text-fill: #7f8c8d;" text="TOTAL USERS" />
-                  <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="120" />
-               </children>
-            </VBox>
-            <VBox prefWidth="213.3" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
-               <children>
-                  <Label style="-fx-text-fill: #7f8c8d;" text="REGISTERED VEHICLES" />
-                  <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="340" />
-               </children>
-            </VBox>
-            <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
-               <children>
-                  <Label prefWidth="213.3" style="-fx-text-fill: #7f8c8d;" text="ACTIVE REPORTS" />
-                  <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="25" />
-               </children>
-            </VBox>
-            <VBox layoutX="303.0" layoutY="10.0" prefWidth="213.3" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
-               <children>
-                  <Label style="-fx-text-fill: #7f8c8d;" text="ACTIVE REPORTS" />
-                  <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="25" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <TitledPane expanded="true" style="-fx-font-weight: bold;" text="SYSTEM OVERVIEW">
-         <content>
-            <TableView prefHeight="220">
-               <columns>
-                  <TableColumn prefWidth="173.0" text="ID" />
-                  <TableColumn prefWidth="173.0" text="Name" />
-                  <TableColumn prefWidth="166.0" text="Role" />
-                  <TableColumn prefWidth="168.0" text="Status" />
-               </columns>
-            </TableView>
-         </content>
-      </TitledPane>
-      <TitledPane expanded="false" text="RECENT ACTIVITY">
-         <content>
-            <ScrollPane prefHeight="160">
-               <content>
-                  <VBox spacing="8" style="-fx-padding: 10;">
-                     <children>
-                        <Label text="✔ Admin logged in" />
-                        <Label text="✔ New user added" />
-                        <Label text="✔ Vehicle registered" />
-                        <Label text="✔ Insurance updated" />
-                        <Label text="✔ Workshop record created" />
-                        <Label text="✔ Police report submitted" />
-                        <Label text="✔ Customer query resolved" />
-                        <Label text="✔ System backup completed" />
-                        <Label text="✔ Report generated" />
-                        <Label text="✔ Data synchronized" />
-                        <Label text="✔ Security check passed" />
-                        <Label text="✔ Vehicle inspection done" />
-                        <Label text="✔ Payment recorded" />
-                        <Label text="✔ Fine issued" />
-                        <Label text="✔ Service updated" />
-                        <Label text="✔ Logout successful" />
-                        <Label text="✔ System optimized" />
-                        <Label text="✔ Database cleaned" />
-                        <Label text="✔ Logs archived" />
-                        <Label text="✔ System running stable" />
-                     </children>
-                  </VBox>
-               </content>
-            </ScrollPane>
-         </content>
-      </TitledPane>
-      <HBox spacing="30">
-         <children>
-            <VBox spacing="5">
-               <children>
-                  <Label text="SYSTEM LOAD" />
-                  <ProgressBar prefHeight="21.0" prefWidth="823.0" progress="0.65" />
-               </children>
-            </VBox>
-            <VBox spacing="5">
-               <children>
-                  <Label text="DATA PROCESSING" />
-                  <ProgressIndicator progress="0.65" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <Button style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10;" text="REFRESH DASHBOARD">
-         <effect>
-            <DropShadow radius="15" />
-         </effect>
-      </Button>
-   </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" style="-fx-padding: 20; -fx-spacing: 20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.admindasboardController">
+    <children>
+        <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="ADMIN DASHBOARD" />
+        <HBox prefHeight="114.0" prefWidth="960.0" spacing="20">
+            <children>
+                <VBox prefWidth="213.3" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
+                    <children>
+                        <Label style="-fx-text-fill: #7f8c8d;" text="TOTAL USERS" />
+                        <Label fx:id="tu" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="120" />
+                    </children>
+                </VBox>
+                <VBox prefHeight="114.0" prefWidth="236.0" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
+                    <children>
+                        <Label style="-fx-text-fill: #7f8c8d;" text="REGISTERED VEHICLES" />
+                        <Label fx:id="rv" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="340" />
+                    </children>
+                </VBox>
+                <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
+                    <children>
+                        <Label prefWidth="213.3" style="-fx-text-fill: #7f8c8d;" text="TOTAL REPORTS" />
+                        <Label fx:id="tr" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="25" />
+                    </children>
+                </VBox>
+                <VBox layoutX="303.0" layoutY="10.0" prefHeight="114.0" prefWidth="276.0" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10;">
+                    <children>
+                        <Label style="-fx-text-fill: #7f8c8d;" text="TOTAL QUERIES" />
+                        <Label fx:id="tq" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="25" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <ScrollPane fitToWidth="true" prefHeight="327.0" prefWidth="960.0">
+            <content>
+                <VBox fx:id="chartContainer" spacing="20" style="-fx-padding: 10; -fx-background-color: #f9f9f9;" />
+            </content>
+        </ScrollPane>
+        <TitledPane expanded="false" text="Activities">
+            <content>
+                <ScrollPane prefHeight="160">
+                    <content>
+                        <VBox fx:id="vb" prefHeight="200.0" prefWidth="955.0" />
+                    </content>
+                </ScrollPane>
+            </content>
+        </TitledPane>
+        <HBox spacing="30">
+            <children>
+                <VBox spacing="5">
+                    <children>
+                        <Label text="SYSTEM LOAD" />
+                        <ProgressBar fx:id="sl" prefHeight="21.0" prefWidth="823.0" progress="0.65" />
+                    </children>
+                </VBox>
+                <VBox spacing="5">
+                    <children>
+                        <Label text="DATA PROCESSING" />
+                        <ProgressIndicator fx:id="dp" progress="0.65" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <Button fx:id="rd" onAction="#handlerefresh" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10;" text="REFRESH DASHBOARD">
+            <effect>
+                <DropShadow radius="15" />
+            </effect>
+        </Button>
+    </children>
 </VBox>

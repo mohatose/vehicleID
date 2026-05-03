@@ -156,7 +156,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="totalCustomer" layoutX="10.0" layoutY="10.0" text="Label">
+                              <Label fx:id="totalCustomer" layoutX="10.0" layoutY="10.0" text="0">
                                  <font>
                                     <Font name="System Bold" size="20.0" />
                                  </font>
@@ -170,7 +170,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label text="Label">
+                              <Label text="0">
                                  <font>
                                     <Font name="System Bold" size="20.0" />
                                  </font>
@@ -186,7 +186,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label text="Label">
+                              <Label text="0">
                                  <font>
                                     <Font name="System Bold" size="20.0" />
                                  </font>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ProgressIndicator?>
@@ -10,15 +12,17 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.servicerecordController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.servicerecordController">
    <children>
       <HBox prefHeight="429.0" prefWidth="1000.0" style="-fx-spacing: 20;">
          <children>
@@ -30,16 +34,23 @@
                         <Label text="service_id:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                         <TextField fx:id="serviceidField" prefHeight="26.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                         <Label text="vehicle_id:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <TextField fx:id="vidField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="service_date:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <TextField fx:id="sdateField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="service_type:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                         <TextField fx:id="stype" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label text="description:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                         <TextArea fx:id="destypeField" prefHeight="74.0" prefRowCount="3" prefWidth="234.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label text="cost:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                         <TextField fx:id="costField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Button fx:id="savesBtn" onAction="#handleseveservice" style="-fx-background-color:#27ae60; -fx-text-fill:white;" text="Save Service" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Button fx:id="savesBtn" onAction="#handleseveservice" style="-fx-background-color:#27ae60; -fx-text-fill:white;" text="Save Service" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect></Button>
+                        <ComboBox fx:id="vidField" prefHeight="25.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="sdateField" prefHeight="25.0" prefWidth="298.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints />
@@ -101,23 +112,44 @@
                   <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Services Overview" />
                   <HBox spacing="15">
                      <children>
-                        <VBox fx:id="tCard" prefHeight="80.0" prefWidth="145.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="tCard" prefHeight="80.0" prefWidth="145.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Total Services" />
                               <Label fx:id="totas" style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="pCard" prefHeight="80.0" prefWidth="135.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="pCard" prefHeight="80.0" prefWidth="135.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Paid Services" />
                               <Label fx:id="pse" style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="upCard" prefHeight="80.0" prefWidth="142.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="upCard" prefHeight="80.0" prefWidth="142.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label prefHeight="18.0" prefWidth="122.0" text="UnPaid Services" />
                               <Label fx:id="ups" style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
                      </children>
                   </HBox>

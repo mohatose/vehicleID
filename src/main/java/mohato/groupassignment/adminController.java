@@ -224,4 +224,24 @@ public class adminController {
             e.printStackTrace();
         }
     }
+    private void insertActivity(String message) {
+
+        String sql = "INSERT INTO activity_log(message) VALUES (?)";
+
+        try (Connection conn = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/vehicle_system",
+                "postgres",
+                "ntj@nalanga#2$8"
+        );
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, message);
+            ps.executeUpdate();
+
+            System.out.println("Activity inserted!");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -5,8 +5,10 @@
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-padding: 20; -fx-spacing: 20; -fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.policedashboardController">
    <children>
@@ -16,29 +18,57 @@
             <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="System Performance" />
             <HBox spacing="20">
                <children>
-                  <VBox prefWidth="200" spacing="10" style="-fx-background-color:white; -fx-padding:20; -fx-border-radius:10; -fx-background-radius:10;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,2);">
+                  <VBox prefWidth="200" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10;">
                      <children>
                         <Label style="-fx-font-size:14px;" text="Total Reports" />
                         <Label fx:id="totalReports" style="-fx-font-size:24px; -fx-font-weight:bold;" text="0" />
                      </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </VBox>
-                  <VBox prefWidth="200" spacing="10" style="-fx-background-color:white; -fx-padding:20;                              -fx-border-radius:10; -fx-background-radius:10;                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,2);">
+                  <VBox prefWidth="200" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10;">
                      <children>
                         <Label style="-fx-font-size:14px;" text="Attended" />
                         <Label fx:id="attendedReports" style="-fx-font-size:24px; -fx-font-weight:bold;" text="0" />
                      </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </VBox>
-                  <VBox prefWidth="200" spacing="10" style="-fx-background-color:white; -fx-padding:20;                              -fx-border-radius:10; -fx-background-radius:10;                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,2);">
+                  <VBox prefWidth="200" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10;">
                      <children>
                         <Label style="-fx-font-size:14px;" text="Unattended" />
                         <Label fx:id="unattendedReports" style="-fx-font-size:24px; -fx-font-weight:bold;" text="0" />
                      </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </VBox>
-                  <VBox prefWidth="200" spacing="10" style="-fx-background-color:white; -fx-padding:20;                              -fx-border-radius:10; -fx-background-radius:10;                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,2);">
+                  <VBox prefWidth="200" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10;">
                      <children>
                         <Label style="-fx-font-size:14px;" text="Vehicles" />
                         <Label fx:id="totalVehicles" style="-fx-font-size:24px; -fx-font-weight:bold;" text="0" />
                      </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </VBox>
                </children>
             </HBox>
@@ -64,8 +94,22 @@
                <content>
                   <VBox fx:id="activityBox" spacing="10" style="-fx-padding:10;" />
                </content>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </ScrollPane>
          </content>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+               </color>
+            </DropShadow>
+         </effect>
       </TitledPane>
    </children>
 </VBox>

@@ -1,27 +1,21 @@
 package mohato.groupassignment;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+import javafx.scene.layout.BorderPane;
 
 public class customerqueryController {
 
@@ -47,78 +41,170 @@ public class customerqueryController {
     private TableColumn<CustomerQuery, String> colResponse;
 
     @FXML
-    private TextField customerIdField;
-
-    @FXML
-    private VBox pCard;
-
-    @FXML
-    private Label pen;
-
-    @FXML
-    private ScrollPane qScroll;
-
-    @FXML
-    private VBox querl;
-
-    @FXML
-    private TextField queryDateField;
-
-    @FXML
-    private TextArea queryTextArea;
-
-    @FXML
-    private ProgressBar rBar;
-
-    @FXML
-    private VBox rCard;
-
-    @FXML
-    private ProgressIndicator rIndi;
-
-    @FXML
-    private Label res;
-
-    @FXML
-    private Button sendQueryBtn;
-
-    @FXML
-    private Label tq;
-
-    @FXML
-    private VBox ttCard;
+    private ComboBox<Integer> customerIdField;
 
     @FXML
     private ComboBox<Integer> vehicleIdField;
 
     @FXML
+    private DatePicker queryDateField;
+
+    @FXML
+    private TextArea queryTextArea;
+
+    @FXML
+    private Label tq;
+
+    @FXML
+    private Label res;
+
+    @FXML
+    private Label pen;
+
+    @FXML
+    private ProgressBar rBar;
+
+    @FXML
+    private ProgressIndicator rIndi;
+
+    @FXML
+    private VBox querl;
+
+    @FXML
+    private ScrollPane qScroll;
+
+    @FXML
+    private VBox pCard;
+
+    @FXML
+    private VBox rCard;
+
+    @FXML
+    private VBox ttCard;
+
+    // ================= INIT =================
+    @FXML
+    public void initialize() {
+        setupTable();
+        loadCombos();
+        loadQueries();
+    }
+
+    // ================= TABLE =================
+    private void setupTable() {
+
+        colQueryId.setCellValueFactory(d ->
+                new javafx.beans.property.SimpleIntegerProperty(d.getValue().getQueryId()).asObject());
+
+        colCustomerId1.setCellValueFactory(d ->
+                new javafx.beans.property.SimpleIntegerProperty(d.getValue().getCustomerId()).asObject());
+
+        colVehicleId.setCellValueFactory(d ->
+                new javafx.beans.property.SimpleIntegerProperty(d.getValue().getVehicleId()).asObject());
+
+        colDate.setCellValueFactory(d ->
+                new javafx.beans.property.SimpleStringProperty(d.getValue().getQueryDate()));
+
+        colQueryText.setCellValueFactory(d ->
+                new javafx.beans.property.SimpleStringProperty(d.getValue().getQueryText()));
+
+        colResponse.setCellValueFactory(d ->
+                new javafx.beans.property.SimpleStringProperty(d.getValue().getResponseText()));
+    }
+
+    // ================= LOAD COMBOS =================
+    private void loadCombos() {
+        try (Connection conn = new DBConnection("postgres", "ntj@nalanga#2$8").getConn()) {
+
+            ResultSet rs1 = conn.createStatement().executeQuery("SELECT customer_id FROM customer");
+            while (rs1.next()) {
+                customerIdField.getItems().add(rs1.getInt(1));
+            }
+
+            ResultSet rs2 = conn.createStatement().executeQuery("SELECT vehicle_id FROM vehicle");
+            while (rs2.next()) {
+                vehicleIdField.getItems().add(rs2.getInt(1));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // ================= INSERT QUERY =================
+    @FXML
     void handlesendquery(ActionEvent event) {
 
-        try {
-            Connection conn = new DBConnection("postgres", "ntj@nalanga#2$8").getConn();
+        try (Connection conn = new DBConnection("postgres", "ntj@nalanga#2$8").getConn()) {
 
-            String sql = "INSERT INTO customer_query (customer_id, vehicle_id, query_text) VALUES (?, ?, ?)";
+            Integer customerId = customerIdField.getValue();
+            Integer vehicleId = vehicleIdField.getValue();
+            String queryText = queryTextArea.getText();
 
-            java.sql.PreparedStatement ps = conn.prepareStatement(sql);
+            LocalDate date = queryDateField.getValue();
 
-            ps.setInt(1, Integer.parseInt(customerIdField.getText()));
-            ps.setInt(2, vehicleIdField.getValue());
-            ps.setString(3, queryTextArea.getText());
+            if (customerId == null || vehicleId == null || queryText.isEmpty() || date == null) {
+                showAlert("Please fill all fields!");
+                return;
+            }
+
+            String sql = """
+                INSERT INTO customer_query (customer_id, vehicle_id, query_date, query_text)
+                VALUES (?, ?, ?, ?)
+            """;
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setInt(1, customerId);
+            ps.setInt(2, vehicleId);
+            ps.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+            ps.setString(4, queryText);
 
             ps.executeUpdate();
 
-            ActivityLogger.log("New query submitted by customer " + customerIdField.getText());
+            ActivityLogger.log("New query submitted by customer " + customerId);
 
+            clearForm();
             loadQueries();
-
-            customerIdField.clear();
-            queryTextArea.clear();
 
         } catch (Exception e) {
             e.printStackTrace();
             ActivityLogger.log("Error submitting query");
         }
     }
+
+    // ================= LOAD TABLE =================
+    private void loadQueries() {
+
+        ObservableList<CustomerQuery> list = FXCollections.observableArrayList();
+
+        try (Connection conn = new DBConnection("postgres", "ntj@nalanga#2$8").getConn()) {
+
+            ResultSet rs = conn.createStatement().executeQuery(
+                    "SELECT * FROM customer_query ORDER BY query_id DESC"
+            );
+
+            while (rs.next()) {
+                list.add(new CustomerQuery(
+                        rs.getInt("query_id"),
+                        rs.getInt("customer_id"),
+                        rs.getInt("vehicle_id"),
+                        String.valueOf(rs.getTimestamp("query_date")),
+                        rs.getString("query_text"),
+                        rs.getString("response_text")
+                ));
+            }
+
+            queryTable.setItems(list);
+            updateStats(list);
+            loadQueriesToVBox(list);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // ================= STATS =================
     private void updateStats(java.util.List<CustomerQuery> list) {
 
         int total = list.size();
@@ -139,85 +225,52 @@ public class customerqueryController {
         rIndi.setProgress(progress);
     }
 
-    @FXML
-    public void initialize() {
-
-        setupTable();
-        loadVehiclesIntoCombo();
-        loadQueries();
+    // ================= CLEAR FORM =================
+    private void clearForm() {
+        customerIdField.getSelectionModel().clearSelection();
+        vehicleIdField.getSelectionModel().clearSelection();
+        queryTextArea.clear();
+        queryDateField.setValue(null);
     }
 
-    private void setupTable() {
-
-        colQueryId.setCellValueFactory(data ->
-                new javafx.beans.property.SimpleIntegerProperty(data.getValue().getQueryId()).asObject());
-
-        colCustomerId1.setCellValueFactory(data ->
-                new javafx.beans.property.SimpleIntegerProperty(data.getValue().getCustomerId()).asObject());
-
-        colVehicleId.setCellValueFactory(data ->
-                new javafx.beans.property.SimpleIntegerProperty(data.getValue().getVehicleId()).asObject());
-
-        colDate.setCellValueFactory(data ->
-                new javafx.beans.property.SimpleStringProperty(data.getValue().getQueryDate()));
-
-        colQueryText.setCellValueFactory(data ->
-                new javafx.beans.property.SimpleStringProperty(data.getValue().getQueryText()));
-
-        colResponse.setCellValueFactory(data ->
-                new javafx.beans.property.SimpleStringProperty(data.getValue().getResponseText()));
+    // ================= ALERT =================
+    private void showAlert(String msg) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setContentText(msg);
+        alert.show();
     }
+    private void loadQueriesToVBox(ObservableList<CustomerQuery> list) {
 
-    private void loadVehiclesIntoCombo() {
+        querl.getChildren().clear(); // IMPORTANT: reset UI
 
-        try {
-            Connection conn = new DBConnection("postgres", "ntj@nalanga#2$8").getConn();
+        for (CustomerQuery q : list) {
 
-            ResultSet rs = conn.createStatement().executeQuery(
-                    "SELECT vehicle_id FROM vehicle"
-            );
+            VBox card = new VBox();
+            card.setSpacing(5);
+            card.setStyle("""
+                -fx-background-color: white;
+                -fx-padding: 12;
+                -fx-background-radius: 10;
+                -fx-border-color: #e0e0e0;
+                -fx-border-radius: 10;
+                """);
 
-            while (rs.next()) {
-                vehicleIdField.getItems().add(rs.getInt("vehicle_id"));
-            }
+            Label id = new Label("Query ID: " + q.getQueryId());
+            id.setStyle("-fx-font-weight: bold; -fx-text-fill: #2c3e50;");
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            Label vehicle = new Label("Vehicle ID: " + q.getVehicleId());
+            vehicle.setStyle("-fx-text-fill: #7f8c8d;");
+
+            Label text = new Label(q.getQueryText());
+            text.setWrapText(true);
+            text.setStyle("-fx-font-size: 13px;");
+
+            Label date = new Label(q.getQueryDate());
+            date.setStyle("-fx-text-fill: #95a5a6; -fx-font-size: 11px;");
+
+            card.getChildren().addAll(id, vehicle, text, date);
+
+            querl.getChildren().add(card);
         }
     }
-    private void loadQueries() {
-
-        javafx.collections.ObservableList<CustomerQuery> list =
-                javafx.collections.FXCollections.observableArrayList();
-
-        try {
-            Connection conn = new DBConnection("postgres", "ntj@nalanga#2$8").getConn();
-
-            ResultSet rs = conn.createStatement().executeQuery(
-                    "SELECT * FROM customer_query"
-            );
-
-            while (rs.next()) {
-
-                list.add(new CustomerQuery(
-                        rs.getInt("query_id"),
-                        rs.getInt("customer_id"),
-                        rs.getInt("vehicle_id"),
-                        rs.getTimestamp("query_date").toString(),
-                        rs.getString("query_text"),
-                        rs.getString("response_text")
-                ));
-            }
-
-            queryTable.setItems(list);
-
-            updateStats(list);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
 }

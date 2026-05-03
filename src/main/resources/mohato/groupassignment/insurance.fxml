@@ -10,10 +10,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.insuranceController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.insuranceController">
    <children>
       <HBox prefHeight="429.0" prefWidth="1000.0" style="-fx-spacing: 20;">
          <children>
@@ -28,12 +30,19 @@
                   <TextField fx:id="endDateField" promptText="end_date" />
                   <HBox prefHeight="46.0" prefWidth="358.0" style="-fx-alignment: center;">
                      <children>
-                        <Button onAction="#handlesaveInsurance" text="Save Insurance" />
+                        <Button onAction="#handlesaveInsurance" prefHeight="33.0" prefWidth="95.0" style="-fx-background-radius: 5;" text="Save Insurance">
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect></Button>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="581.0" style="-fx-padding: 20; -fx-spacing: 20;">
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="430.0" prefWidth="581.0" style="-fx-padding: 20; -fx-spacing: 20; -fx-background-color: #f4f6f9;">
                <children>
                   <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="Insurance Table" />
                   <TableView fx:id="insuranceTable" prefHeight="372.0" prefWidth="542.0">
@@ -70,23 +79,44 @@
                   <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Insurance Overview" />
                   <HBox spacing="15">
                      <children>
-                        <VBox fx:id="tCard" prefHeight="80.0" prefWidth="137.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="tCard" prefHeight="80.0" prefWidth="137.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Total " />
                               <Label fx:id="totalLabel" style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="iCard" prefHeight="80.0" prefWidth="136.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="iCard" prefHeight="80.0" prefWidth="136.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Insured Vehicles" />
                               <Label fx:id="insuredLabel" style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="uCared" prefHeight="80.0" prefWidth="141.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="uCared" prefHeight="80.0" prefWidth="141.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Uninsured Cars" />
                               <Label fx:id="uninsuredLabel" style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
                      </children>
                   </HBox>

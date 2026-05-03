@@ -136,11 +136,10 @@ public class customerController{
             }
 
             table.setItems(list);
-
             updateStats(list);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            showAlert("Database Error", "Failed to load customers from database.", Alert.AlertType.ERROR);
         }
     }
 
@@ -160,11 +159,13 @@ public class customerController{
 
             ps.executeUpdate();
 
+            showAlert("Success", "Customer saved successfully!", Alert.AlertType.INFORMATION);
+
             clearFields();
             loadCustomers();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            showAlert("Database Error", "Failed to save customer.\nCheck input or connection.", Alert.AlertType.ERROR);
         }
     }
 
@@ -173,7 +174,10 @@ public class customerController{
 
         Customer selected = table.getSelectionModel().getSelectedItem();
 
-        if (selected == null) return;
+        if (selected == null) {
+            showAlert("Warning", "Please select a customer first.", Alert.AlertType.WARNING);
+            return;
+        }
 
         try {
             Connection conn = new DBConnection("postgres", "ntj@nalanga#2$8").getConn();
@@ -189,10 +193,12 @@ public class customerController{
 
             ps.executeUpdate();
 
+            showAlert("Success", "Customer updated successfully!", Alert.AlertType.INFORMATION);
+
             loadCustomers();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            showAlert("Database Error", "Failed to update customer.", Alert.AlertType.ERROR);
         }
     }
 
@@ -218,6 +224,14 @@ public class customerController{
         pi.setProgress(progress);
         pil.setProgress(progress);
     }
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 
 
 }

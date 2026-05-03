@@ -12,15 +12,20 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DisplacementMap?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.FloatMap?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.policeController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.policeController">
    <children>
       <HBox prefHeight="468.0" prefWidth="1000.0" style="-fx-padding: 20; -fx-spacing: 20;">
          <children>
@@ -30,16 +35,33 @@
                   <GridPane hgap="10" vgap="10">
                      <children>
                         <Label text="report_id:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <TextField fx:id="reportidField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <TextField fx:id="reportidField" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                           <effect>
+                              <InnerShadow>
+                                 <color>
+                                    <Color red="0.8509804010391235" green="0.9254902005195618" blue="0.9725490212440491" />
+                                 </color>
+                              </InnerShadow>
+                           </effect></TextField>
                         <Label text="vehicle_id:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                         <Label text="report_date:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                         <Label text="report_type:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                         <TextField fx:id="typeField" promptText="Accident / Theft" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label text="description:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                        <TextArea fx:id="descField" prefHeight="70.0" prefRowCount="3" prefWidth="301.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextArea fx:id="descField" prefHeight="70.0" prefRowCount="3" prefWidth="301.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <effect>
+                              <InnerShadow>
+                                 <color>
+                                    <Color red="0.8509804010391235" green="0.9254902005195618" blue="0.9725490212440491" />
+                                 </color>
+                              </InnerShadow>
+                           </effect></TextArea>
                         <Label text="officer_name:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                         <TextField fx:id="oField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Button fx:id="savereportBtn" onAction="#handleSavereport" style="-fx-background-color:#c0392b; -fx-text-fill:white;" text="Save Report" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Button fx:id="savereportBtn" onAction="#handleSavereport" style="-fx-background-color:#c0392b; -fx-text-fill:white;" text="Save Report" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                         <ComboBox fx:id="vField" prefHeight="25.0" prefWidth="303.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <DatePicker fx:id="dField" prefHeight="25.0" prefWidth="303.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
@@ -71,8 +93,22 @@
                         <TableColumn fx:id="descCole" prefWidth="94.39996337890625" text="description" />
                         <TableColumn fx:id="oCole" prefWidth="95.2000732421875" text="officer_name" />
                      </columns>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
                   </TableView>
                </children>
+               <effect>
+                  <DisplacementMap>
+                     <mapData>
+                        <FloatMap />
+                     </mapData>
+                  </DisplacementMap>
+               </effect>
             </VBox>
          </children>
       </HBox>
@@ -83,23 +119,44 @@
                   <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Reports Overview" />
                   <HBox spacing="15">
                      <children>
-                        <VBox fx:id="tCardss" prefHeight="80.0" prefWidth="145.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="tCardss" prefHeight="80.0" prefWidth="145.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Total reports" />
                               <Label fx:id="tr" style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="aCardss" prefHeight="80.0" prefWidth="135.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="aCardss" prefHeight="80.0" prefWidth="135.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Report attended" />
                               <Label fx:id="ra" style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="uCardss" prefHeight="80.0" prefWidth="142.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="uCardss" prefHeight="80.0" prefWidth="142.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label prefHeight="18.0" prefWidth="122.0" text="Reports Unattended" />
                               <Label fx:id="ru" style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
                      </children>
                   </HBox>
@@ -130,6 +187,13 @@
                <font>
                   <Font size="16.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </TitledPane>
          </children>
       </HBox>

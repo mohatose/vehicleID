@@ -35,9 +35,18 @@
       </TableView>
       <HBox prefHeight="46.0" prefWidth="960.0" spacing="10" style="-fx-spacing: 210;">
          <children>
-            <Button fx:id="addbtn" onAction="#openAddUserForm" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" text="Add User" />
-            <Button fx:id="delbtn" onAction="#handleDeleteUser" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Delete User" />
-            <Button fx:id="editbtn" layoutX="193.0" layoutY="10.0" onAction="#handleEditUser" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Edit User" />
+            <Button fx:id="addbtn" onAction="#openAddUserForm" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" text="Add User">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+            <Button fx:id="delbtn" onAction="#handleDeleteUser" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Delete User">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+            <Button fx:id="editbtn" layoutX="193.0" layoutY="10.0" onAction="#handleEditUser" prefHeight="46.0" prefWidth="180.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Edit User">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
          </children>
       </HBox>
    </children>

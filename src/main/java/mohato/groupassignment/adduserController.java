@@ -3,6 +3,7 @@ package mohato.groupassignment;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class adduserController {
@@ -77,5 +78,25 @@ public class adduserController {
         username.setText(user.getUsername());
         email.setText(user.getEmail());
         roleBox.setValue(user.getRole());
+    }
+    private void insertActivity(String message) {
+
+        String sql = "INSERT INTO activity_log(message) VALUES (?)";
+
+        try (Connection conn = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/vehicle_system",
+                "postgres",
+                "ntj@nalanga#2$8"
+        );
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, message);
+            ps.executeUpdate();
+
+            System.out.println("Activity inserted!");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

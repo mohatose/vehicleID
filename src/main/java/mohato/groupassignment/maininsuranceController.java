@@ -71,7 +71,7 @@ public class maininsuranceController {
 
     @FXML
     private void initialize() {
-        pagination.setPageCount(3);   // 3 pages
+        pagination.setPageCount(2);
         pagination.setCurrentPageIndex(0);
 
         pagination.setPageFactory(this::loadPage);
@@ -85,8 +85,7 @@ public class maininsuranceController {
                 case 1:
                     return loadFXML("insurance.fxml");
 
-                case 2:
-                    return loadFXML("Vehicle.fxml");
+
 
                 default:
                     return new javafx.scene.control.Label("Page not found");

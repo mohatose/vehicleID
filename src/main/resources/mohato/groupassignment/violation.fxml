@@ -11,12 +11,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-padding: 20; -fx-spacing: 20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.violationController">
    <children>
@@ -36,7 +38,10 @@
                         <Label text="fine_amount:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                         <TextField fx:id="fineamountField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label text="status:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                        <Button fx:id="saveviolationBtn" onAction="#handleSaveviolation" style="-fx-background-color:#e67e22; -fx-text-fill:white;" text="Save Violation" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Button fx:id="saveviolationBtn" onAction="#handleSaveviolation" style="-fx-background-color:#e67e22; -fx-text-fill:white;" text="Save Violation" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                         <ComboBox fx:id="vehicleidField" prefHeight="25.0" prefWidth="270.0" promptText="Select Vehicle" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <ComboBox fx:id="statusField" prefHeight="25.0" prefWidth="271.0" promptText="Select Status" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <DatePicker fx:id="violationdateField" prefHeight="25.0" prefWidth="269.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -81,23 +86,44 @@
                   <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="Violation Overview" />
                   <HBox spacing="15">
                      <children>
-                        <VBox fx:id="totalVcard" prefHeight="80.0" prefWidth="150.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="totalVcard" prefHeight="80.0" prefWidth="150.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Total Violation" />
                               <Label fx:id="tv" style="-fx-font-size:18px; -fx-font-weight:bold;" text="10" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="paidCard" prefHeight="80.0" prefWidth="140.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="paidCard" prefHeight="80.0" prefWidth="140.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text=" Paid Fine" />
                               <Label fx:id="pf" style="-fx-font-size:18px; -fx-font-weight:bold;" text="7" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
-                        <VBox fx:id="unpaidCard" prefHeight="80.0" prefWidth="138.0" spacing="5" style="-fx-background-color:#ecf0f1; -fx-padding:15;">
+                        <VBox fx:id="unpaidCard" prefHeight="80.0" prefWidth="138.0" spacing="5" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
                            <children>
                               <Label text="Unpaid Fine" />
                               <Label fx:id="uf" style="-fx-font-size:18px; -fx-font-weight:bold;" text="3" />
                            </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                         </VBox>
                      </children>
                   </HBox>
@@ -109,7 +135,7 @@
                   </HBox>
                </children>
             </VBox>
-            <TitledPane animated="false" prefHeight="140.0" prefWidth="476.0" text="untitled">
+            <TitledPane animated="false" prefHeight="140.0" prefWidth="476.0" text="Violations">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

@@ -70,6 +70,13 @@
                </children>
             </HBox>
          </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.8941176533699036" green="0.9490196108818054" blue="0.9607843160629272" />
+               </color>
+            </DropShadow>
+         </effect>
       </VBox>
       <VBox spacing="10" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
          <children>

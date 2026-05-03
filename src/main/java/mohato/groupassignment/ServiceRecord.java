@@ -11,9 +11,7 @@ public class ServiceRecord {
     private String description;
     private double cost;
 
-    // =========================
-    // CONSTRUCTOR
-    // =========================
+
     public ServiceRecord(int serviceId,
                          int vehicleId,
                          String serviceDate,
@@ -29,9 +27,7 @@ public class ServiceRecord {
         this.cost = cost;
     }
 
-    // =========================
-    // GETTERS
-    // =========================
+
     public int getServiceId() {
         return serviceId;
     }
@@ -56,9 +52,7 @@ public class ServiceRecord {
         return cost;
     }
 
-    // =========================
-    // OPTIONAL: DISPLAY FORMAT
-    // =========================
+
     @Override
     public String toString() {
         return "Service #" + serviceId + " | Vehicle " + vehicleId;

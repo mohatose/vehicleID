@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ProgressIndicator?>
@@ -10,6 +8,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -19,7 +18,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1100.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.customerqueryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1100.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.responseController">
    <children>
       <HBox prefHeight="627.0" prefWidth="1100.0" style="-fx-spacing: 30;">
          <children>
@@ -28,44 +27,30 @@
                   <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="Submit Vehicle Query" />
                   <GridPane hgap="15" prefHeight="325.0" prefWidth="490.0" vgap="15">
                      <children>
-                        <Label text="Customer ID:" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label text="Vehicle ID:" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label text="Query Date:" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label text="Query:" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextArea fx:id="queryTextArea" prefHeight="40.0" prefRowCount="3" prefWidth="342.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Button fx:id="sendQueryBtn" onAction="#handlesendquery" prefHeight="26.0" prefWidth="341.0" style="-fx-background-color:#3498db; -fx-text-fill:white;" text="Send Query" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Button fx:id="respondBtn" onAction="#handlerespond" prefHeight="26.0" prefWidth="341.0" style="-fx-background-color:#3498db; -fx-text-fill:white;" text="Respond query" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <effect>
                               <DropShadow>
                                  <color>
                                     <Color red="0.7137255072593689" green="0.7333333492279053" blue="0.7372549176216125" />
                                  </color>
                               </DropShadow>
-                           </effect></Button>
-                        <ComboBox fx:id="vehicleIdField" prefHeight="25.0" prefWidth="342.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ComboBox fx:id="customerIdField" prefHeight="25.0" prefWidth="342.0" GridPane.columnIndex="1" />
-                        <DatePicker fx:id="queryDateField" prefHeight="25.0" prefWidth="342.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </effect>
+                        </Button>
+                         <TextField fx:id="searchField" prefHeight="25.0" prefWidth="146.0" promptText="Search queries..." GridPane.columnIndex="1" />
+                        <TextArea fx:id="queryrespond" layoutX="106.0" layoutY="131.0" prefHeight="40.0" prefRowCount="3" prefWidth="342.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label layoutX="10.0" layoutY="141.0" text="Response:" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                      <columnConstraints>
                         <ColumnConstraints />
                         <ColumnConstraints />
                      </columnConstraints>
                      <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
                         <RowConstraints />
                         <RowConstraints />
                         <RowConstraints />
@@ -156,14 +141,15 @@
                         <TableColumn fx:id="colDate" text="query_date" />
                         <TableColumn fx:id="colQueryText" prefWidth="82.0" text="query_text" />
                         <TableColumn fx:id="colResponse" prefWidth="139.0" text="response_text" />
+                         <TableColumn fx:id="colStatus" text="Status" />
                      </columns>
                   </TableView>
                   <Label style="-fx-font-size:18px; -fx-font-weight:bold;" text="Query List" />
-                   <ScrollPane fitToWidth="true">
-                       <content>
-                           <VBox fx:id="querl" spacing="10" />
-                       </content>
-                   </ScrollPane>
+                  <ScrollPane fx:id="qScroll" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <VBox fx:id="querl" prefHeight="200.0" prefWidth="434.0" />
+                     </content>
+                  </ScrollPane>
                </children>
             </VBox>
          </children>

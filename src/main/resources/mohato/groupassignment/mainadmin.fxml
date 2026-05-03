@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.mainadminController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="879.0" prefWidth="1100.0" style="-fx-background-color: #b6bbbc;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.mainadminController">
    <top>
-      <HBox prefHeight="39.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="39.0" prefWidth="1000.0" style="-fx-background-color: #b6bbbc;" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar fx:id="menubar" prefHeight="46.0" prefWidth="1000.0" style="-fx-background-color: #d9ecf8;">
+            <MenuBar fx:id="menubar" prefHeight="46.0" prefWidth="1000.0" style="-fx-background-color: #f4f6f9;">
                <menus>
                   <Menu text="Dashboard">
                      <items>
@@ -31,17 +31,33 @@
                      <items>
                         <MenuItem fx:id="reports" mnemonicParsing="false" onAction="#handlereports" text="Reports Page" />
                      </items></Menu>
+                  <Menu text="Queries">
+                     <items>
+                        <MenuItem fx:id="settings1" mnemonicParsing="false" onAction="#handlequery" text="Respond to Queries" />
+                     </items>
+                  </Menu>
+                  <Menu text="Isurance">
+                     <items>
+                        <MenuItem fx:id="settings" mnemonicParsing="false" onAction="#handleinsurance" text="Insurance Page" />
+                     </items>
+                  </Menu>
                   <Menu text="Settings">
                      <items>
-                        <MenuItem fx:id="settings" mnemonicParsing="false" onAction="#handlesettings" text="Settings Page" />
-                     </items></Menu>
+                        <MenuItem fx:id="settings111" mnemonicParsing="false" onAction="#handlesettings" text="Settings Page" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="account" mnemonicParsing="false" text="Logout">
+                     <items>
+                        <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#handlelogout" text="logout" />
+                     </items>
+                  </Menu>
                </menus>
             </MenuBar>
          </children>
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="700.0" prefWidth="1000.0" style="-fx-padding: 30;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="700.0" prefWidth="1.0" style="-fx-padding: 30; -fx-background-color: #f4f6f9;" BorderPane.alignment="CENTER">
          <children>
             <Label style="-fx-font-size:16px; -fx-font-weight:bold;" text="System Navigation" />
             <Pagination fx:id="pagination" maxPageIndicatorCount="3" pageCount="3" style="-fx-border-color:#dcdde1; -fx-border-radius:5;" />

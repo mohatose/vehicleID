@@ -13,8 +13,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
+
 import java.time.LocalDate;
+
+
+import javafx.scene.control.*;
+
 
 public class violationController {
 
@@ -135,7 +139,8 @@ public class violationController {
             violationTable.setItems(list);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            addLog("Failed to load violations");
+            showAlert("Load Error", e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
@@ -190,8 +195,9 @@ public class violationController {
             statusField.setValue(null);
 
         } catch (Exception e) {
-            addLog("Error: " + e.getMessage());
-            e.printStackTrace();
+            addLog("Save failed");
+            showAlert("Database Error", e.getMessage(), Alert.AlertType.ERROR);
+            showAlert("Success", "Violation saved successfully!", Alert.AlertType.INFORMATION);
         }
     }
 
@@ -223,7 +229,7 @@ public class violationController {
             violationIndi.setProgress(progress);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            showAlert("Stats Error", e.getMessage(), Alert.AlertType.WARNING);
         }
     }
 
@@ -252,8 +258,8 @@ public class violationController {
 
 
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        }catch (Exception e) {
+            showAlert("Vehicle Load Error", e.getMessage(), Alert.AlertType.ERROR);
         }
     }
     private void loadVehicles() {
@@ -281,6 +287,15 @@ public class violationController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void showAlert(String title, String message, Alert.AlertType type) {
+
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.showAndWait();
     }
 
 }

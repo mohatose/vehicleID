@@ -4,10 +4,11 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-padding: 20; -fx-spacing: 20; -fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-padding: 20; -fx-spacing: 20; -fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mohato.groupassignment.customerdashboardController">
    <children>
       <Label style="-fx-font-size:22px; -fx-font-weight:bold;" text="Customer" />
       <HBox spacing="15" style="-fx-alignment: center;">
@@ -17,24 +18,36 @@
                   <Label text="Total Vehicles" />
                   <Label fx:id="basotho" style="-fx-font-size:20px; -fx-font-weight:bold;" text="120" />
                </children>
+               <effect>
+                  <DropShadow />
+               </effect>
             </VBox>
             <VBox prefHeight="83.0" prefWidth="171.0" spacing="5" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
                <children>
                   <Label text="Active Policies" />
                   <Label fx:id="lesotho" style="-fx-font-size:20px; -fx-font-weight:bold;" text="95" />
                </children>
+               <effect>
+                  <DropShadow />
+               </effect>
             </VBox>
             <VBox prefHeight="83.0" prefWidth="170.0" spacing="5" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
                <children>
-                  <Label text="Expired Policies" />
+                  <Label text="Total Violation" />
                   <Label fx:id="lithabeng" style="-fx-font-size:20px; -fx-font-weight:bold;" text="25" />
                </children>
+               <effect>
+                  <DropShadow />
+               </effect>
             </VBox>
             <VBox prefHeight="83.0" prefWidth="170.0" spacing="5" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
                <children>
-                  <Label text="Claims Processed" />
+                  <Label text="Total Customers" />
                   <Label fx:id="majahapere" style="-fx-font-size:20px; -fx-font-weight:bold;" text="40" />
                </children>
+               <effect>
+                  <DropShadow />
+               </effect>
             </VBox>
          </children>
       </HBox>

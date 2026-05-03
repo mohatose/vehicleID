@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -35,7 +36,7 @@ public class workshopController {
     private TextField yearField;
 
     @FXML
-    private TextField ownerIdField;
+    private ComboBox<Integer> ownerIdField;
 
     @FXML
     private TableView<Vehicle> workshopTable;
@@ -99,7 +100,7 @@ public class workshopController {
                 ).asObject());
 
         log("Workshop initialized");
-
+        loadOwners();
         loadVehicles();
     }
 
@@ -155,10 +156,12 @@ public class workshopController {
             ps.setString(3, modelField.getText());
             ps.setInt(4, Integer.parseInt(yearField.getText()));
 
-            if (ownerIdField.getText().isEmpty()) {
+            Integer ownerId = ownerIdField.getValue();
+
+            if (ownerId == null) {
                 ps.setNull(5, java.sql.Types.INTEGER);
             } else {
-                ps.setInt(5, Integer.parseInt(ownerIdField.getText()));
+                ps.setInt(5, ownerId);
             }
 
             ps.executeUpdate();
@@ -173,14 +176,14 @@ public class workshopController {
             e.printStackTrace();
         }
     }
-
     private void clearFields() {
         vehicleIdField.clear();
         regNumberField.clear();
         makeField.clear();
         modelField.clear();
         yearField.clear();
-        ownerIdField.clear();
+
+        ownerIdField.setValue(null); // ✅ correct way for ComboBox
     }
 
     private void updateStats() {
@@ -210,5 +213,23 @@ public class workshopController {
 
         vehicleScroll.layout();
         vehicleScroll.setVvalue(1.0);
+    }
+    private void loadOwners() {
+
+        try {
+            Connection conn = new DBConnection("postgres", "ntj@nalanga#2$8").getConn();
+
+            ResultSet rs = conn.createStatement().executeQuery(
+                    "SELECT customer_id FROM customer"
+            );
+
+            while (rs.next()) {
+                ownerIdField.getItems().add(rs.getInt("customer_id"));
+            }
+
+        } catch (Exception e) {
+            log("ERROR loading owners: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
